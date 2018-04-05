@@ -15,7 +15,69 @@
 
 <body>
     <main role="main" class="main-container" aria-live="assertive">
+       <header role="bunner" class="row" id="bunner-search">
+
+         <div class="col-6" id="logo">
+              <h1 id="logo">LunchTime</h1>
+         </div>
+              
+         <div class="col-6" id="location">
+                <form class="location-search">
+                        <h4 id="small-logo">Location</h4>
+                        <input type="text" class="city-search" placeholder="Location" />
+                        <button type="submit" class="search-button" id="submit-location-search">Search</button>
+                  </form>
+         </div>
+
+       </header>
+
+      <section id="main-search" class="row">
+            <form id="restaurnt-search">
+                    <h4 id="small-logo">Find Reastaurnt By:</h4>
+
+                    <section id="">
+                            <div>
+                              <input type="radio" id="by-name"
+                               name="contact" value="byname">
+                              <label for="byname">By Name</label>
+                          
+                              <input type="radio" id="cuesine"
+                               name="contact" value="cuesine">
+                              <label for="cuesine">cuesine</label>
+                          
+                              <input type="radio" id="random"
+                               name="contact" value="random">
+                              <label for="random">Random</label>
+                            </div>
+                        </section>
+
+
+                    <input type="text" class="rest-search" placeholder="Restarant Name" />
+                    <button type="submit" class="search-button" id="submit-rest-search">Search</button>
+              </form>
+
+
+      </section>
        
+
+
+      <section id="rulette-search">
+          <h4>Going to lunch with friends, play food roulette</h4>
+          <form id="rulette-search-form">
+                <h4>Choose your cuisine :</h4>
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <button type="submit" class="search-button" id="submit-rest-search">Result</button>
+
+          </form>
+
+      </section>
+
+      <section id="result-display">
+
+      </section>
 
     </main>
     <script src="indexajax.js"></script>
