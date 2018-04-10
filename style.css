@@ -5,6 +5,11 @@
 .grid-container {
   display: grid;
 }
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+
 
 .main-container {
   margin-left: 15%;
@@ -43,3 +48,21 @@ background-color: yellow;
       font-style: italic;
   }
   
+
+  
+  #main-search{
+    margin-bottom: 20px;
+  }
+
+  #rulette-search{
+
+    margin-bottom: 30px;
+  }
+
+  #logo{
+    margin-top: 10px;
+  }
+
+  #small-logo{
+    margin-top: 10px;
+  }

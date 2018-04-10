@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crazy Stream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>LunchTime</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -13,9 +16,9 @@
 </head>
 
 
-<body>
+<body class="main-body">
     <main role="main" class="main-container" aria-live="assertive">
-       <header role="bunner" class="row" id="bunner-search">
+       <header role="bunner" class="row" id="bunner-search" class="container-fluid">
 
          <div class="col-6" id="logo">
               <h1 id="logo">LunchTime</h1>
@@ -23,7 +26,7 @@
               
          <div class="col-6" id="location">
                 <form class="location-search">
-                        <h4 id="small-logo">Location</h4>
+                        <h6 id="small-logo">City</h6>
                         <input type="text" class="city-search" placeholder="Location" />
                         <button type="submit" class="search-button" id="submit-location-search">Search</button>
                   </form>
@@ -32,8 +35,8 @@
        </header>
 
       <section id="main-search" class="row">
-            <form id="restaurnt-search">
-                    <h4 id="small-logo">Find Reastaurnt By:</h4>
+            <form id="restaurnt-search" class="container-fluid">
+                    <h6 id="small-logo">Find Reastaurnt By:</h6>
 
                     <section id="">
                             <div>
@@ -61,10 +64,11 @@
        
 
 
-      <section id="rulette-search">
-          <h4>Going to lunch with friends, play food roulette</h4>
-          <form id="rulette-search-form">
-                <h4>Choose your cuisine :</h4>
+      <section id="rulette-search" class="container-fluid">
+         
+          <form id="rulette-search-form" class="container-fluid">
+                <h6>Going to lunch with friends, play food roulette</h6>
+                <h6>Choose your cuisine :</h6>
                 <input type="text" class="rest-search" placeholder="Your Chice" />
                 <input type="text" class="rest-search" placeholder="Your Chice" />
                 <input type="text" class="rest-search" placeholder="Your Chice" />
@@ -74,14 +78,19 @@
           </form>
 
       </section>
-
+      <p></p>
+      <p></p>
+      <p></p>
       <section id="result-display">
-
+       <h6>Result</h6>
       </section>
-
+      
     </main>
     <script src="indexajax.js"></script>
     <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
