@@ -1,3 +1,26 @@
+function getDataAPI(search) {
+  $.ajax({
+    type: "POST",
+    url: "https://developers.zomato.com/api/v2.1/search",
+    headers: {
+      "user-key": API_KEY
+    },
+    data: {
+      q: search
+    },
+    success: function(search_data) {
+     
+
+      $("#show-search-result").html(String(search_data));
+
+      //console.log(search_data);
+    },
+    error: function(error) {
+      console.log("some error");
+    }
+  });
+}
+
 /*$('.js-search-form').on('submit', function(event){
         event.preventDefault();
         let searchRequest  = $(".search-text-field").val();

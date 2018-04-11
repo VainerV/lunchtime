@@ -17,14 +17,14 @@
 
 
 <body class="main-body">
-    <main role="main" class="main-container" aria-live="assertive">
+    <main role="main" class="main-container container" aria-live="assertive">
        <header role="bunner" class="row" id="bunner-search" class="container-fluid">
 
-         <div class="col-6" id="logo">
+         <div class="col-sm" id="logo">
               <h1 id="logo">LunchTime</h1>
          </div>
               
-         <div class="col-6" id="location">
+         <div class="col-sm" id="location">
                 <form class="location-search">
                         <h6 id="small-logo">City</h6>
                         <input type="text" class="city-search" placeholder="Location" />
@@ -55,7 +55,7 @@
                         </section>
 
 
-                    <input type="text" class="rest-search" placeholder="Restarant Name" disabled/>
+                    <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" disabled/>
                     <button type="submit" class="search-button" id="submit-rest-search">Search</button>
               </form>
 
@@ -83,13 +83,29 @@
       <p></p>
       <section id="result-display">
        <h6>Result</h6>
+       <section id="show-search-result"></section>
+          <p>Belagios Pizza</p>
+          <p>123 Main St, Portland OR 97003</p>
+          <p></p>
+          <p>Belagios Pizza</p>
+          <p>123 Main St, Portland OR 97003</p>
+          <p></p>
+          <p>Belagios Pizza</p>
+          <p>123 Main St, Portland OR 97003</p>
+          <p></p>
+          <p>Belagios Pizza</p>
+          <p>123 Main St, Portland OR 97003</p>
+          <p></p>
+          <p>Belagios Pizza</p>
+          <p>123 Main St, Portland OR 97003</p>
+          <p></p>
+          
       </section>
       
     </main>
     <script src="keys.js"></script>
     <script src="indexajax.js"></script>
     <script src="index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
