@@ -1,6 +1,15 @@
 const STATE = {
   enableField: true,
-  zipCode: ""
+  zipCode: "",
+  byName: true,
+  byCuesine: false,
+  random: false,
+  restaurantName: "",
+  choise1: "",
+  choise2: "",
+  choise3: "",
+  choise4: "",
+  searchResult: "",
 };
 
 
@@ -14,6 +23,7 @@ $(document).ready(function(){
 // Main render function
 function render() {
     onOffSearchField();
+    onOffSearchButton()
     console.log("my state" , STATE);
   }
 
@@ -29,6 +39,12 @@ function enableListeners(){
 function onOffSearchField() {
   $("#single-search").prop("disabled", STATE.enableField);
 }
+
+// Enable search button (view)
+function onOffSearchButton() {
+    $("#submit-rest-search").prop("disabled", STATE.enableField);
+  }
+
 
 // Changing State Enable fiels from false to true and oposite (controler);
 function toggleSearchField() {
@@ -59,6 +75,9 @@ function updateZipCodeValue(zipCodeValue){
     STATE.zipCode = zipCodeValue;
     render();
 }
+
+
+
 
 
 
