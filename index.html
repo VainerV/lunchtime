@@ -20,14 +20,14 @@
     <main role="main" class="main-container container" aria-live="assertive">
        <header role="bunner" class="row" id="bunner-search" class="container-fluid">
 
-         <div class="col-sm" id="logo">
+         <div class="col-xs col-sm col-md col-lg" id="logo">
               <h1 id="logo">LunchTime</h1>
          </div>
               
-         <div class="col-sm" id="location">
+         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="location">
                 <form class="location-search">
-                        <h6 id="small-logo">City</h6>
-                        <input type="text" class="city-search" placeholder="Location" />
+                        <h6 id="small-logo">Zip Code</h6>
+                        <input type="text" id="zipcode-search" placeholder="Location" />
                         <button type="submit" class="search-button" id="submit-location-search">Search</button>
                   </form>
          </div>
@@ -35,10 +35,10 @@
        </header>
 
       <section id="main-search" class="row">
-            <form id="restaurnt-search" class="container-fluid">
+            <form id="restaurnt-search" class="container">
                     <h6 id="small-logo">Find Reastaurnt By:</h6>
 
-                    <section id="">
+                    <section class="col-xs col-sm col-md col-lg">
                             <div>
                               <input type="radio" id="by-name"
                                name="contact" value="byname"  checked="checked">
@@ -46,7 +46,7 @@
                           
                               <input type="radio" id="cuesine"
                                name="contact" value="cuesine">
-                              <label for="cuesine">cuesine</label>
+                              <label for="cuesine">Cuesine</label>
                           
                               <input type="radio" id="random"
                                name="contact" value="random">
@@ -55,7 +55,7 @@
                         </section>
 
 
-                    <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" disabled/>
+                    <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name"/>
                     <button type="submit" class="search-button" id="submit-rest-search">Search</button>
               </form>
 
@@ -64,19 +64,21 @@
        
 
 
-      <section id="rulette-search" class="container-fluid">
-         
-          <form id="rulette-search-form" class="container-fluid">
+      <section id="rulette-search" class="container">
+         <div class="row">
+          <form id="rulette-search-form" class="row" >
+              <div class="col-xs col-sm col-md col-lg">
                 <h6>Going to lunch with friends, play food roulette</h6>
                 <h6>Choose your cuisine :</h6>
-                <input type="text" class="rest-search" placeholder="Your Chice" disabled/>
-                <input type="text" class="rest-search" placeholder="Your Chice" disabled/>
-                <input type="text" class="rest-search" placeholder="Your Chice" disabled/>
-                <input type="text" class="rest-search" placeholder="Your Chice" disabled/>
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <input type="text" class="rest-search" placeholder="Your Chice" />
+                <input type="text" class="rest-search" placeholder="Your Chice" />
                 <button type="submit" class="search-button" id="submit-rest-search">Result</button>
 
           </form>
-
+          </div>
+          </div>
       </section>
       <p></p>
       <p></p>
@@ -84,21 +86,9 @@
       <section id="result-display">
        <h6>Result</h6>
        <section id="show-search-result"></section>
-          <p>Belagios Pizza</p>
-          <p>123 Main St, Portland OR 97003</p>
-          <p></p>
-          <p>Belagios Pizza</p>
-          <p>123 Main St, Portland OR 97003</p>
-          <p></p>
-          <p>Belagios Pizza</p>
-          <p>123 Main St, Portland OR 97003</p>
-          <p></p>
-          <p>Belagios Pizza</p>
-          <p>123 Main St, Portland OR 97003</p>
-          <p></p>
-          <p>Belagios Pizza</p>
-          <p>123 Main St, Portland OR 97003</p>
-          <p></p>
+          <p>Thambnail Image(URL)of the rest<br> Name <br> Address <br> Price Range $$$ <br> Rating</p>
+          
+        
           
       </section>
       
