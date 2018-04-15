@@ -2,49 +2,50 @@ const STATE = {
   enableField: true,
   zipCode: "",
   byName: true,
-  byCuesine: false,
+  byCuisine: false,
   random: false,
   restaurantName: "",
-  choise1: "",
-  choise2: "",
-  choise3: "",
-  choise4: "",
-  searchResult: "",
+  choice1: "",
+  choice2: "",
+  choice3: "",
+  choice4: "",
+  searchResult: ""
 };
 
+$(document).ready(function() {
+  enableListeners();
 
- 
-$(document).ready(function(){
-    enableListeners();
-    render();
+  isNumberKey();
+  render();
 });
-
 
 // Main render function
 function render() {
-    onOffSearchField();
-    onOffSearchButton()
-    console.log("my state" , STATE);
-  }
-
-// Enables all listeners (controler)
-function enableListeners(){
-    storeZipCode();
-    submitZipCode();
-    
+  onOffSearchField();
+  onOffSearchButton();
+  //console.log("my state", STATE);
 }
 
+// Enables all listeners (controler)
+function enableListeners() {
+  storeZipCode();
+  submitZipCode();
+}
 
 // Enable search fields (view)
 function onOffSearchField() {
   $("#single-search").prop("disabled", STATE.enableField);
+  $("#random-search1").prop("disabled", STATE.enableField);
+  $("#random-search2").prop("disabled", STATE.enableField);
+  $("#random-search3").prop("disabled", STATE.enableField);
+  $("#random-search4").prop("disabled", STATE.enableField);
 }
 
 // Enable search button (view)
 function onOffSearchButton() {
-    $("#submit-rest-search").prop("disabled", STATE.enableField);
-  }
-
+  $("#submit-rest-search").prop("disabled", STATE.enableField);
+  $("#submit-random-search").prop("disabled", STATE.enableField);
+}
 
 // Changing State Enable fiels from false to true and oposite (controler);
 function toggleSearchField() {
@@ -52,60 +53,34 @@ function toggleSearchField() {
   render();
 }
 
-
-
 function submitZipCode() {
   // enable restarant field and submit zipcode
   $("#submit-location-search").on("click", event => {
     event.preventDefault();
     toggleSearchField();
   });
-  
 }
 
 // Stores entered zipcode(controller)
-function storeZipCode(){ 
-    $("#zipcode-search").change( (event) => {
-     updateZipCodeValue(event.target.value);
+function storeZipCode() {
+  $("#zipcode-search").change(event => {
+    updateZipCodeValue(event.target.value);
   });
 }
 
 // Update STATE zipcode Value
-function updateZipCodeValue(zipCodeValue){
-    STATE.zipCode = zipCodeValue;
-    render();
+function updateZipCodeValue(zipCodeValue) {
+  STATE.zipCode = zipCodeValue;
+  render();
 }
 
+// function that checks is zipcode entered have numerical value
+function isNumberKey() {
+  $("#zipcode-search").keypress(event => {
+    let charCode = event.which ? event.which : event.keyCode;
+    console.log(event.which, event.keyCode);
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
 
-
-
-
-
-
-/*$(document).ready(function(){
-
-    $("#submit-location-search").on("click",(event) => {
-        event.preventDefault();
-        $(".rest-search").prop("disabled", false);
-     })
-
-     restaurantSearch();
-
-});
-
-
-function restaurantSearch(){
-    $("#submit-rest-search").on("click",(event) => {
-        event.preventDefault();
-        let name = $("single-search").val();
-        getDataAPI(name);
-
-     })
-
-
+    return true;
+  });
 }
-
-/*function showResult(data){
-    let fakeHTML = `<p> ${Name}: Belagios Pizza /n ${address}: 123 Main St. Portland</p>`
-    return ()
-}*/
