@@ -9,12 +9,11 @@ const STATE = {
   choice2: "",
   choice3: "",
   choice4: "",
-  searchResult: ""
+  searchResult: "",
 };
 
 $(document).ready(function () {
   enableListeners();
-
   isNumberKey();
   render();
 });
@@ -31,6 +30,7 @@ function render() {
 function enableListeners() {
   storeZipCode();
   submitZipCode();
+  randomResultUpdate();
 }
 
 // Enable search fields (view)
@@ -42,7 +42,7 @@ function onOffSearchField() {
   $("#random-search4").prop("disabled", STATE.enableField);
 }
 
-// Enable search button (view)
+// Enable search button (view) !!!!!check on multiple clicks!!!
 function onOffSearchButton() {
   $("#submit-rest-search").prop("disabled", STATE.enableField);
   $("#submit-random-search").prop("disabled", STATE.enableField);
@@ -59,33 +59,25 @@ function submitZipCode() {
   $("#submit-location-search").on("click", event => {
     event.preventDefault();
     toggleSearchField();
+    //call zipcodaupdate to STATE
+    updateZipCodeValue($("#zipcode-search").val())
+
   });
 }
 
 
-// Stores entered zipcode(controller)
-function storeZipCode() {
-/*
-  $("#zipcode-search").change(event => {
-    updateZipCodeValue(event.target.value);
-  });
- */
-  
- /// Doesnt work
- $("#submit-location-search").on("click", event => {
-      event.preventDefault();
-      console.log("vadim");
-      updateZipCodeValue($("#zipcode-search").val());
-    
-  });
-  
-}
+/*// Stores entered zipcode(controller)
+  function storeZipCode() {
+    $("#zipcode-search").change(event => {
+      updateZipCodeValue(event.target.value);
+         });
+
+      }*/
 
 // Update STATE zipcode Value
 function updateZipCodeValue(zipCodeValue) {
   STATE.zipCode = zipCodeValue;
   render();
-  console.log(STATE.zipCode)
 }
 
 
@@ -93,7 +85,7 @@ function updateZipCodeValue(zipCodeValue) {
 function isNumberKey() {
   $("#zipcode-search").keypress(event => {
     let charCode = event.which ? event.which : event.keyCode;
-   // console.log(event.which, event.keyCode);
+    // console.log(event.which, event.keyCode);
     if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
 
     return true;
@@ -134,15 +126,36 @@ function updateSearchCreteria(searchCriteria) {
 
 // Stores entered restorantname(controller)
 function storeZipCode() {
-  $("#submit-rest-search").on("click" , event => {
+  $("#submit-rest-search").on("click", event => {
     event.preventDefault();
     updateRestourantValue($("#single-search").val());
   });
-  
+
 }
 
 // Update STATE zipcode Value
 function updateRestourantValue(restaurantValue) {
   STATE.restaurantName = restaurantValue;
   render();
+}
+
+
+// update randome search choices (controller)
+function randomResultUpdate() {
+  $("#submit-random-search").on("click", event => {
+    event.preventDefault();
+    updateRandomValue($("#random-search1").val(), $("#random-search2").val(), $("#random-search3").val(), $("#random-search4").val())
+  })
+
+}
+
+
+// value
+function updateRandomValue(randomValue1, randomValue2, randomValue3, randomValue4) {
+  STATE.choice1 = randomValue1;
+  STATE.choice2 = randomValue2;
+  STATE.choice3 = randomValue3;
+  STATE.choice4 = randomValue4;
+  render();
+  console.log(STATE)
 }
