@@ -1,16 +1,26 @@
 const STATE = {
   enableField: true,
   zipCode: "",
-  byName: true,
-  byCuisine: false,
-  random: false,
+  byName: "",
+  byCuisine: "",
+  random: "",
+  roulette: "",
   restaurantName: "",
   choice1: "",
   choice2: "",
   choice3: "",
   choice4: "",
   searchResult: "",
+  searchOption: 1,
 };
+
+const searchOpt = {
+  1: "byName",
+  2: "byCuisine",
+  3: "random",
+  4: "roulette",
+}
+
 
 $(document).ready(function () {
   enableListeners();
@@ -18,11 +28,11 @@ $(document).ready(function () {
   render();
 });
 
-// Main render function
+// Main render function all view functions
 function render() {
   onOffSearchField();
   onOffSearchButton();
-  checkSearchCriteria();
+  showHideRandomSearchForm();
   //console.log("my state", STATE);
 }
 
@@ -31,6 +41,19 @@ function enableListeners() {
   storeZipCode();
   submitZipCode();
   randomResultUpdate();
+  checkSearchCriteria();
+}
+
+// Show Hide random search form (view)
+function showHideRandomSearchForm() {
+  if (STATE.searchOption !== 4) {
+    $("#rulette-search").hide();
+    $("#single-restaurant-search").show();
+  } 
+  else {
+    $("#rulette-search").show();
+    $("#single-restaurant-search").hide();
+  }
 }
 
 // Enable search fields (view)
@@ -48,11 +71,13 @@ function onOffSearchButton() {
   $("#submit-random-search").prop("disabled", STATE.enableField);
 }
 
+
 // Changing State Enable fiels from false to true and oposite (controler);
 function toggleSearchField() {
   STATE.enableField = !STATE.enableField;
   render();
 }
+
 
 function submitZipCode() {
   // enable restarant field and submit zipcode
@@ -64,15 +89,6 @@ function submitZipCode() {
 
   });
 }
-
-
-/*// Stores entered zipcode(controller)
-  function storeZipCode() {
-    $("#zipcode-search").change(event => {
-      updateZipCodeValue(event.target.value);
-         });
-
-      }*/
 
 // Update STATE zipcode Value
 function updateZipCodeValue(zipCodeValue) {
@@ -96,32 +112,34 @@ function isNumberKey() {
 
 // Check search Criteria (controller)
 function checkSearchCriteria() {
-  $('#search-creteria').change(function () {
+  $("input[name='searchcriteria']").click(function () {
     let searchCriteria = $("input[name='searchcriteria']:checked").val();
     updateSearchCreteria(searchCriteria);
+    
     render();
 
   });
 }
 
-// Update and store search criteria (value)
+// Update and store search criteria STATE (model)
 function updateSearchCreteria(searchCriteria) {
-  let searchResult = "";
   if (searchCriteria == "byname") {
-    STATE.byName = true;
-    STATE.byCuizine = false;
-    STATE.random = false;
+    STATE.searchOption = 1;
   } else if (searchCriteria == "cuisine") {
-    STATE.byName = false;
-    STATE.byCuisine = true;
-    STATE.random = false;
+    STATE.searchOption = 2;
+  } else if (searchCriteria == "random") {
+    STATE.searchOption = 3;
+  } else if (searchCriteria == "roulette") {
+    STATE.searchOption = 4;
   }
-  if (searchCriteria == "random") {
-    STATE.byName = false;
-    STATE.byCuisine = false;
-    STATE.random = true;
-  }
+
 }
+
+// converts option number to string name will aid to filter API (model)
+function convertSearchToString() {
+  return (searchOpt[STATE.searchOption]);
+}
+
 
 
 // Stores entered restorantname(controller)
@@ -132,7 +150,6 @@ function storeZipCode() {
   });
 
 }
-
 // Update STATE zipcode Value
 function updateRestourantValue(restaurantValue) {
   STATE.restaurantName = restaurantValue;
@@ -149,13 +166,12 @@ function randomResultUpdate() {
 
 }
 
-
-// value
+// assignes values to STATe
 function updateRandomValue(randomValue1, randomValue2, randomValue3, randomValue4) {
   STATE.choice1 = randomValue1;
   STATE.choice2 = randomValue2;
   STATE.choice3 = randomValue3;
   STATE.choice4 = randomValue4;
   render();
-  console.log(STATE)
+  //console.log(STATE)
 }
