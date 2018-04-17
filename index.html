@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <title>LunchTime</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
@@ -18,91 +19,95 @@
 
 <body class="main-body">
     <main role="main" class="main-container container" aria-live="assertive">
-       <header role="bunner" class="row" id="bunner-search" class="container-fluid">
+        <header role="bunner" class="row" id="bunner-search" class="container-fluid">
 
-         <div class="col-xs col-sm col-md col-lg" id="logo">
-              <h1 id="logo">LunchTime</h1>
-         </div>
-              
-         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="location">
-                <form class="location-search">
-                        <h6 id="small-logo">Zip Code</h6>
-                        <input type="text" id="zipcode-search" placeholder="Location" />
-                        <button type="submit" class="search-button" id="submit-location-search">Search</button>
-                  </form>
-         </div>
+            <div class="col-xs col-sm col-md col-lg" id="logo">
+                <h1 id="logo">LunchTime</h1>
+            </div>
 
-       </header>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="location">
+                <form class="location-search text-color">
+                    <h6 id="small-logo">Zip Code</h6>
+                    <input type="text" id="zipcode-search" placeholder="Location" />
+                    <button type="submit" class="search-button text-color" id="submit-location-search text-color">Search</button>
+                </form>
+            </div>
 
-      <section id="main-search" class="row">
+        </header>
+
+        <section id="main-search" class="row text-color">
             <form id="restaurnt-search" class="container">
-                    <h6 id="small-logo">Find Reastaurnt By:</h6>
+                <h6 id="small-logo">Find Reastaurnt By:</h6>
 
-                    <section class="col-xs col-sm col-md col-lg">
-                            <div id="search-creteria">
-                              <input type="radio" id="by-name"
-                               name="searchcriteria" value="byname">
-                              <label for="byname">By Name</label>
-                          
-                              <input type="radio" id="cuisine"
-                               name="searchcriteria" value="cuisine">
-                              <label for="cuisine">Cuisine</label>
-                          
-                              <input type="radio" id="random"
-                               name="searchcriteria" value="random">
-                              <label for="random">Random</label>
+                <section class="col-xs col-sm col-md col-lg">
+                    <div id="search-creteria">
+                        <input type="radio" id="by-name" name="searchcriteria" value="byname">
+                        <label for="byname">By Name</label>
 
-                              <input type="radio" id="roulette"
-                               name="searchcriteria" value="roulette">
-                              <label for="roulette">Roulette</label>
-                            </div>
-                        </section>
+                        <input type="radio" id="cuisine" name="searchcriteria" value="cuisine">
+                        <label for="cuisine">Cuisine</label>
 
-                 <div id="single-restaurant-search">
-                    <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name"/>
+                        <input type="radio" id="random" name="searchcriteria" value="random">
+                        <label for="random">Random</label>
+
+                        <input type="radio" id="roulette" name="searchcriteria" value="roulette">
+                        <label for="roulette">Roulette</label>
+                    </div>
+                </section>
+
+                <div id="single-restaurant-search">
+                    <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" />
                     <button type="submit" class="search-button" id="submit-rest-search">Search</button>
                 </div>
-              </form>
+            </form>
 
 
-      </section>
+        </section>
+
+
+
+        <section id="rulette-search" class="container text-color">
+            <div class="row">
+                <form id="rulette-search-form" class="row">
+                    <div class="col-xs col-sm col-md col-lg">
+                        <h6>Going to lunch with friends, play food roulette</h6>
+                        <h6>Choose your cuisine :</h6>
+                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1" />
+                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search2" />
+                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search3" />
+                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search4" />
+                        <button type="submit" class="search-button" id="submit-random-search">Result</button>
+
+                </form>
+                </div>
+            </div>
+        </section>
        
-
-
-      <section id="rulette-search" class="container">
-         <div class="row">
-          <form id="rulette-search-form" class="row" >
-              <div class="col-xs col-sm col-md col-lg">
-                <h6>Going to lunch with friends, play food roulette</h6>
-                <h6>Choose your cuisine :</h6>
-                <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1"/>
-                <input type="text" class="rest-search" placeholder="Your Choice" id="random-search2"/>
-                <input type="text" class="rest-search" placeholder="Your Choice" id="random-search3"/>
-                <input type="text" class="rest-search" placeholder="Your Choice" id="random-search4"/>
-                <button type="submit" class="search-button" id="submit-random-search">Result</button>
-
-          </form>
-          </div>
-          </div>
-      </section>
-      <p></p>
-      <p></p>
-      <p></p>
-      <section id="result-display">
-       <h6>Result</h6>
-       <section id="show-search-result"></section>
-          <p>Thambnail Image(URL)of the rest<br> Name <br> Address <br> Price Range $$$ <br> Rating</p>
-          
+            <h6 class="text-color">Result</h6>
+            <section id="show-search-result result-display" class="row border-outline">
+            
+                <div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto">
+                    <img id="thumbnail" src="images\thumbnail.jpg" alt="Restarant">
+                    </div>
+             <div class="col-xs col-sm col-md col-lg text-color">
+                     Name
+                <br> Address
+                <br> Price Range <img class="raiting-size" src="images\dollar.png" alt="Price rating">
+                <br> Rating  <img class="raiting-size" src="images\star.png" alt="Restaurant rating">
         
-          
-      </section>
-      
+            </div>
+
+
+        </section>
+
     </main>
     <script src="keys.js"></script>
     <script src="indexajax.js"></script>
     <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
