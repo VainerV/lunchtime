@@ -21,6 +21,12 @@ function getDataAPI(search) {
   });
 }
 
+
+
+
+
+
+
 /*$('.js-search-form').on('submit', function(event){
         event.preventDefault();
         let searchRequest  = $(".search-text-field").val();
