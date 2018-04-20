@@ -11,7 +11,7 @@ const STATE = {
   choice2: "",
   choice3: "",
   choice4: "",
-  searchResult: "",
+  searchResult: [],
   searchOption: 1,
 };
 
