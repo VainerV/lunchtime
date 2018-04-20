@@ -9,9 +9,9 @@ function getDataAPI(search) {
       q: search
     },
     success: function(search_data) {
-     
+      // sending AJAX retrved data to sort and get reqired fields
 
-      $("#show-search-result").html(String(search_data));
+      $("#show-search-result").html(processAPI_DATA(search_data));
 
       //console.log(search_data);
     },
@@ -21,11 +21,39 @@ function getDataAPI(search) {
   });
 }
 
+// Pulling info from API
+function processAPI_DATA(data) {
+  let restaurantArray = data.restaurants.map(currentRestaurant => {
+    let restaurant = currentRestaurant.restaurant;
+    return {
+      name: restaurant.name,
+      address: restaurant.location.address,
+      thumb: restaurant.thumb,
+      priceRange: restaurant.price_range,
+      ratings: restaurant.user_rating.aggregate_rating
+    };
+  });
+  return outPutDATAtoHTML(restaurantArray);
+}
 
+function outPutDATAtoHTML(restaurantArray) {
+  return restaurantArray.map(singleRest => {
+    return `<div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto">
+    <img id="thumbnail" src="${singleRest.thumb}" alt="Restarant">
+    </div>
+   <div class="col-xs col-sm col-md col-lg text-color">
+     Name: ${singleRest.name}
+    <br> Address: ${singleRest.address}
+    <br> Price Range <img class="raiting-size" src="images\dollar.png" alt="Price rating"> ${
+      singleRest.priceRange
+    }
+<br> Rating  <img class="raiting-size" src="images\star.png" alt="Restaurant rating"> ${
+      singleRest.ratings
+    }
 
-
-
-
+</div>`;
+  });
+}
 
 /*$('.js-search-form').on('submit', function(event){
         event.preventDefault();

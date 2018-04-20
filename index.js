@@ -1,3 +1,4 @@
+
 const STATE = {
   enableField: true,
   zipCode: "",
@@ -38,7 +39,7 @@ function render() {
 
 // Enables all listeners (controler)
 function enableListeners() {
-  storeZipCode();
+  storeRestName();
   submitZipCode();
   randomResultUpdate();
   checkSearchCriteria();
@@ -143,10 +144,11 @@ function convertSearchToString() {
 
 
 // Stores entered restorantname(controller)
-function storeZipCode() {
+function storeRestName() {
   $("#submit-rest-search").on("click", event => {
     event.preventDefault();
     updateRestourantValue($("#single-search").val());
+    getDataAPI($("#single-search").val());
   });
 
 }
@@ -174,4 +176,8 @@ function updateRandomValue(randomValue1, randomValue2, randomValue3, randomValue
   STATE.choice4 = randomValue4;
   render();
   //console.log(STATE)
+}
+
+function submitSingleRestSearch(){
+
 }
