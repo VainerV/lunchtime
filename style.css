@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
-.grid-container {
-  display: grid;
+p{
+  line-height: 1;
 }
+
 .selector-for-some-widget {
   box-sizing: content-box;
 }
@@ -22,7 +22,7 @@ button {
   background-color: yellow;
 }
 
-.search-button {
+/*.search-button {
   width: auto;
   min-width: 75px;
   align-self: right;
@@ -31,7 +31,8 @@ button {
   font-style: bold;
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+}*/
+
 
 #logo {
   /*text-align: center;*/
@@ -59,13 +60,14 @@ button {
 }
 
 .border-outline {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px; 
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 4px;
   border-style: solid;
   border-color: yellow;
 }
+
+
 
 #thumbnail{
   width: 100px;

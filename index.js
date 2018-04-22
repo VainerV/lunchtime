@@ -11,7 +11,13 @@ const STATE = {
   choice2: "",
   choice3: "",
   choice4: "",
-  searchResult: [],
+  searchResult: [{
+    name: "Pizza Hut",
+    address: "123 Main St Potland",
+    thumb: "",
+    priceRange: "10-25",
+    ratings: "3 stars",
+  }],
   searchOption: 1,
 };
 
@@ -34,6 +40,7 @@ function render() {
   onOffSearchField();
   onOffSearchButton();
   showHideRandomSearchForm();
+  outPutDATAtoHTML();
   //console.log("my state", STATE);
 }
 
@@ -152,7 +159,7 @@ function storeRestName() {
   });
 
 }
-// Update STATE zipcode Value
+// Update STATE rest Value
 function updateRestourantValue(restaurantValue) {
   STATE.restaurantName = restaurantValue;
   render();
@@ -178,6 +185,38 @@ function updateRandomValue(randomValue1, randomValue2, randomValue3, randomValue
   //console.log(STATE)
 }
 
-function submitSingleRestSearch(){
 
+// Pulling info from API
+function processAPI_DATA() {
+  STATE.searchResult = STATE.searchResult.restaurants.map(currentRestaurant => {
+    let restaurant = currentRestaurant.restaurant;
+    return {
+      name: restaurant.name,
+      address: restaurant.location.address,
+      thumb: restaurant.thumb,
+      priceRange: restaurant.price_range,
+      ratings: restaurant.user_rating.aggregate_rating
+    };
+  });
+  render();
+}
+
+
+// output data to the PAge 
+function outPutDATAtoHTML() {
+  let displayResult = STATE.searchResult.map(singleRest => {
+    return `<div class="col-12">
+  
+    <div class="col text-color">
+     <p>Name: ${singleRest.name} </p>
+     <p>Address: ${singleRest.address}</p>
+     <p> Price Range <img class="raiting-size" src="images/dollar.png" alt="Price rating"> ${
+      singleRest.priceRange} </p>
+     <p>Rating  <img class="raiting-size" src="images/star.png" alt="Restaurant rating"> ${
+      singleRest.ratings}</p>
+    </div>
+    <hr>
+</div>`
+  });
+  $("#show-search-result").html(displayResult);
 }

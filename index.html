@@ -17,29 +17,30 @@
 </head>
 
 
-<body class="main-body">
-    <main role="main" class="main-container container" aria-live="assertive">
-        <header role="bunner" class="row" id="bunner-search" class="container-fluid">
+<body>
+    <main role="main" aria-live="assertive" class="main-container container">
+        <header role="bunner" class="row" id="bunner-search" >
 
-            <div class="col-xs col-sm col-md col-lg" id="logo">
+            <div class="col" id="logo">
                 <h1 id="logo">LunchTime</h1>
             </div>
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="location">
+            <div class="col" id="location">
                 <form class="location-search">
                     <h6 id="small-logo" class="text-color">Zip Code</h6>
                     <input type="text" id="zipcode-search" placeholder="Location" />
-                    <button type="submit" class="search-button" id="submit-location-search">Search</button>
+                    <button type="submit" class="btn btn-primary" id="submit-location-search">Search</button>
                 </form>
             </div>
 
         </header>
 
         <section id="main-search" class="row text-color">
-            <form id="restaurnt-search" class="container">
-                <h6 id="small-logo">Find Reastaurnt By:</h6>
+            <form id="restaurnt-search">
+                
 
-                <section class="col-xs col-sm col-md col-lg">
+                <div class="col">
+                        <h6 id="small-logo">Find Reastaurnt By:</h6>
                     <div id="search-creteria">
                         <input type="radio" id="by-name" name="searchcriteria" value="byname">
                         <label for="byname">By Name</label>
@@ -53,23 +54,30 @@
                         <input type="radio" id="roulette" name="searchcriteria" value="roulette">
                         <label for="roulette">Roulette</label>
                     </div>
-                </section>
+                </div>
 
                 <div id="single-restaurant-search">
+                <div class="col">
                     <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" />
+                
+                
                     <button type="submit" class="search-button" id="submit-rest-search">Search</button>
                 </div>
-            </form>
+                    
 
+                </div>
+            </form>
+           
+          
 
         </section>
 
 
 
-        <section id="rulette-search" class="container text-color">
+        <section id="rulette-search" class="text-color">
             <div class="row">
                 <form id="rulette-search-form" class="row">
-                    <div class="col-xs col-sm col-md col-lg">
+                    <div class="col">
                         <h6>Going to lunch with friends, play food roulette</h6>
                         <h6>Choose your cuisine :</h6>
                         <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1" />
@@ -86,25 +94,13 @@
         <h6 class="text-color">Result</h6>
         <section id="show-search-result" class="row border-outline">
 
-            <div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto">
-                <img id="thumbnail" src="images\thumbnail.jpg" alt="Restarant">
-            </div>
-            <div class="col-xs col-sm col-md col-lg text-color">
-                Name
-                <br> Address
-                <br> Price Range
-                <img class="raiting-size" src="images\dollar.png" alt="Price rating">
-                <br> Rating
-                <img class="raiting-size" src="images\star.png" alt="Restaurant rating">
-
-            </div>
 
 
         </section>
 
     </main>
     <script src="keys.js"></script>
-    <script src="indexajax.js"></script>
+    <script src="client.js"></script>
     <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
