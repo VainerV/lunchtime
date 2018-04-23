@@ -42,8 +42,8 @@ $(document).ready(function() {
 
 // Main render function all view functions
 function render() {
-  onOffSearchField();
-  onOffSearchButton();
+  //onOffSearchField();
+ // onOffSearchButton();
   showHideRandomSearchForm();
   outPutDATAtoHTML();
   //console.log("my state", STATE);
@@ -60,6 +60,7 @@ function enableListeners() {
 // hide main search upon load
 function hideMainSearch() {
   $("#main-search").hide();
+  $("#rulette-search").hide();
 }
 
 // Show Hide random search form (view)
@@ -73,7 +74,7 @@ function showHideRandomSearchForm() {
   }
 }
 
-// Enable search fields (view)
+/*// Enable search fields (view)
 function onOffSearchField() {
   $("#single-search").prop("disabled", STATE.enableField);
   $("#random-search1").prop("disabled", STATE.enableField);
@@ -86,13 +87,15 @@ function onOffSearchField() {
 function onOffSearchButton() {
   $("#submit-rest-search").prop("disabled", STATE.enableField);
   $("#submit-random-search").prop("disabled", STATE.enableField);
-}
+}*/
 
 // Changing State Enable fiels from false to true and oposite (controler);
 function toggleSearchField() {
   STATE.enableField = !STATE.enableField;
   render();
 }
+
+
 
 function submitZipCode() {
   // enable restarant field and submit zipcode
