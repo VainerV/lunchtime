@@ -89,11 +89,11 @@ function onOffSearchButton() {
   $("#submit-random-search").prop("disabled", STATE.enableField);
 }*/
 
-// Changing State Enable fiels from false to true and oposite (controler);
+/*// Changing State Enable fiels from false to true and oposite (controler);
 function toggleSearchField() {
   STATE.enableField = !STATE.enableField;
   render();
-}
+}*/
 
 
 
@@ -101,7 +101,7 @@ function submitZipCode() {
   // enable restarant field and submit zipcode
   $("#submit-location-search").on("click", event => {
     event.preventDefault();
-    toggleSearchField();
+    //toggleSearchField();
     //call zipcodaupdate to STATE
     updateZipCodeValue($("#zipcode-search").val());
     getDataAPIformZIPCODE();
