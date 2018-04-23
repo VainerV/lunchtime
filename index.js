@@ -1,4 +1,3 @@
-
 const STATE = {
   enableField: true,
   zipCode: "",
@@ -11,27 +10,33 @@ const STATE = {
   choice2: "",
   choice3: "",
   choice4: "",
-  searchResult: [{
-    name: "Pizza Hut",
-    address: "123 Main St Potland",
-    thumb: "",
-    priceRange: "10-25",
-    ratings: "3 stars",
-  }],
-  searchOption: 1,
+  searchResult: [
+    {
+      name: "Pizza Hut",
+      address: "123 Main St Potland",
+      thumb: "",
+      priceRange: "10-25",
+      ratings: "3 stars"
+    }
+  ],
+  location: {
+    lat: "",
+    lon: "",
+  },
+  searchOption: 1
 };
 
 const searchOpt = {
   1: "byName",
   2: "byCuisine",
   3: "random",
-  4: "roulette",
-}
+  4: "roulette"
+};
 
-
-$(document).ready(function () {
+$(document).ready(function() {
   enableListeners();
   isNumberKey();
+  hideMainSearch();
   render();
 });
 
@@ -52,13 +57,17 @@ function enableListeners() {
   checkSearchCriteria();
 }
 
+// hide main search upon load
+function hideMainSearch() {
+  $("#main-search").hide();
+}
+
 // Show Hide random search form (view)
 function showHideRandomSearchForm() {
   if (STATE.searchOption !== 4) {
     $("#rulette-search").hide();
     $("#single-restaurant-search").show();
-  } 
-  else {
+  } else {
     $("#rulette-search").show();
     $("#single-restaurant-search").hide();
   }
@@ -79,13 +88,11 @@ function onOffSearchButton() {
   $("#submit-random-search").prop("disabled", STATE.enableField);
 }
 
-
 // Changing State Enable fiels from false to true and oposite (controler);
 function toggleSearchField() {
   STATE.enableField = !STATE.enableField;
   render();
 }
-
 
 function submitZipCode() {
   // enable restarant field and submit zipcode
@@ -93,8 +100,9 @@ function submitZipCode() {
     event.preventDefault();
     toggleSearchField();
     //call zipcodaupdate to STATE
-    updateZipCodeValue($("#zipcode-search").val())
-
+    updateZipCodeValue($("#zipcode-search").val());
+    getDataAPIformZIPCODE();
+    $("#main-search").show();
   });
 }
 
@@ -103,6 +111,7 @@ function updateZipCodeValue(zipCodeValue) {
   STATE.zipCode = zipCodeValue;
   render();
 }
+
 
 
 // function that checks is zipcode entered have numerical value
@@ -116,16 +125,13 @@ function isNumberKey() {
   });
 }
 
-
-
 // Check search Criteria (controller)
 function checkSearchCriteria() {
-  $("input[name='searchcriteria']").click(function () {
+  $("input[name='searchcriteria']").click(function() {
     let searchCriteria = $("input[name='searchcriteria']:checked").val();
     updateSearchCreteria(searchCriteria);
-    
-    render();
 
+    render();
   });
 }
 
@@ -140,15 +146,12 @@ function updateSearchCreteria(searchCriteria) {
   } else if (searchCriteria == "roulette") {
     STATE.searchOption = 4;
   }
-
 }
 
 // converts option number to string name will aid to filter API (model)
 function convertSearchToString() {
-  return (searchOpt[STATE.searchOption]);
+  return searchOpt[STATE.searchOption];
 }
-
-
 
 // Stores entered restorantname(controller)
 function storeRestName() {
@@ -157,7 +160,6 @@ function storeRestName() {
     updateRestourantValue($("#single-search").val());
     getDataAPI($("#single-search").val());
   });
-
 }
 // Update STATE rest Value
 function updateRestourantValue(restaurantValue) {
@@ -165,18 +167,26 @@ function updateRestourantValue(restaurantValue) {
   render();
 }
 
-
 // update randome search choices (controller)
 function randomResultUpdate() {
   $("#submit-random-search").on("click", event => {
     event.preventDefault();
-    updateRandomValue($("#random-search1").val(), $("#random-search2").val(), $("#random-search3").val(), $("#random-search4").val())
-  })
-
+    updateRandomValue(
+      $("#random-search1").val(),
+      $("#random-search2").val(),
+      $("#random-search3").val(),
+      $("#random-search4").val()
+    );
+  });
 }
 
 // assignes values to STATe
-function updateRandomValue(randomValue1, randomValue2, randomValue3, randomValue4) {
+function updateRandomValue(
+  randomValue1,
+  randomValue2,
+  randomValue3,
+  randomValue4
+) {
   STATE.choice1 = randomValue1;
   STATE.choice2 = randomValue2;
   STATE.choice3 = randomValue3;
@@ -188,8 +198,13 @@ function updateRandomValue(randomValue1, randomValue2, randomValue3, randomValue
 
 // Pulling info from API
 function processAPI_DATA() {
+  
   STATE.searchResult = STATE.searchResult.restaurants.map(currentRestaurant => {
     let restaurant = currentRestaurant.restaurant;
+   // console.log(STATE.searchResult.restaurants)
+
+    // new term to retreave the data by zipcode
+   //if(STATE.zipCode == restaurant.location.zipcode){
     return {
       name: restaurant.name,
       address: restaurant.location.address,
@@ -197,12 +212,13 @@ function processAPI_DATA() {
       priceRange: restaurant.price_range,
       ratings: restaurant.user_rating.aggregate_rating
     };
+//  }
   });
+  
   render();
 }
 
-
-// output data to the PAge 
+// output data to the PAge
 function outPutDATAtoHTML() {
   let displayResult = STATE.searchResult.map(singleRest => {
     return `<div class="col-12">
@@ -211,12 +227,14 @@ function outPutDATAtoHTML() {
      <p>Name: ${singleRest.name} </p>
      <p>Address: ${singleRest.address}</p>
      <p> Price Range <img class="raiting-size" src="images/dollar.png" alt="Price rating"> ${
-      singleRest.priceRange} </p>
+       singleRest.priceRange
+     } </p>
      <p>Rating  <img class="raiting-size" src="images/star.png" alt="Restaurant rating"> ${
-      singleRest.ratings}</p>
+       singleRest.ratings
+     }</p>
     </div>
     <hr>
-</div>`
+</div>`;
   });
   $("#show-search-result").html(displayResult);
 }
