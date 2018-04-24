@@ -12,11 +12,11 @@ const STATE = {
   choice4: "",
   searchResult: [
     {
-      name: "Pizza Hut",
-      address: "123 Main St Potland",
+      name: "",
+      address: "",
       thumb: "",
-      priceRange: "10-25",
-      ratings: "3 stars"
+      priceRange: "",
+      ratings: ""
     }
   ],
   location: {
@@ -37,6 +37,7 @@ $(document).ready(function() {
   enableListeners();
   isNumberKey();
   hideMainSearch();
+  hideSearchResult();
   render();
 });
 
@@ -55,6 +56,14 @@ function enableListeners() {
   submitZipCode();
   randomResultUpdate();
   checkSearchCriteria();
+}
+
+function hideSearchResult(){
+$("#show-search-result").hide();
+}
+
+function showSearchResult(){
+  $("#show-search-result").show();
 }
 
 // hide main search upon load
@@ -106,6 +115,8 @@ function submitZipCode() {
     updateZipCodeValue($("#zipcode-search").val());
     getDataAPIformZIPCODE();
     $("#main-search").show();
+    //$("#location").hide();
+   // showCity();
   });
 }
 
@@ -115,6 +126,11 @@ function updateZipCodeValue(zipCodeValue) {
   render();
 }
 
+/*function showCity(){
+  let city = ` <div class="col text-color"> City: ${STATE.location}</div>`
+  $("location").show();
+  $("location").html(city);
+}*/
 
 
 // function that checks is zipcode entered have numerical value

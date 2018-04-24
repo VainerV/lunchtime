@@ -6,7 +6,7 @@ function getDataAPI(search) {
       lon: parseFloat(STATE.location.places[0].longitude),
     
   });
-
+// retreave zomato API
   $.ajax({
     type: "GET",
     url: "https://developers.zomato.com/api/v2.1/search",
@@ -24,6 +24,7 @@ function getDataAPI(search) {
       // sending AJAX retrved data to sort and get reqired fields
       STATE.searchResult = search_data;
       processAPI_DATA();
+      showSearchResult();
     },
     error: function(error) {
       console.log("some error");
