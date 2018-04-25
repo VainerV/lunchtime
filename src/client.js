@@ -41,7 +41,9 @@ function getDataAPIformZIPCODE() {
     success: function(search_data) {
       // sending AJAX retrved data to sort and get reqired fields
       STATE.location = search_data;
-      console.log(STATE.location);
+      //console.log(STATE.location);
+      STATE.showCity = true;
+      render();
     },
     error: function(error) {
       console.log("some error");
