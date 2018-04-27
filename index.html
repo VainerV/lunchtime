@@ -12,14 +12,14 @@
     <title>LunchTime</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="grid.css" rel="stylesheet" type="text/css" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    
 </head>
 
 
 <body>
     <main role="main" aria-live="assertive" class="main-container container">
-        <header role="bunner" class="row" id="bunner-search" >
+        <header role="bunner" class="row" id="bunner-search">
 
             <div class="col" id="logo">
                 <h1 id="logo">LunchTime</h1>
@@ -42,10 +42,10 @@
 
         <section id="main-search" class="row text-color">
             <form id="restaurnt-search">
-                
+
 
                 <div class="col">
-                        <h6 id="small-logo">Find Reastaurnt By:</h6>
+                    <h6 id="small-logo">Find Reastaurnt By:</h6>
                     <div id="search-creteria">
                         <input type="radio" id="by-name" name="searchcriteria" value="byname">
                         <label for="byname">Choose Cuisine</label>
@@ -57,37 +57,37 @@
                 </div>
 
                 <div id="single-restaurant-search">
-                <div class="col">
-                    <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" />
-                
-                
-                    <button type="submit" class="search-button" id="submit-rest-search">Search</button>
-                </div>
-                    
+                    <div class="col">
+                        <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" />
+
+
+                        <button type="submit" class="search-button" id="submit-rest-search">Search</button>
+                    </div>
+
 
                 </div>
             </form>
-           
-          
+
+
 
         </section>
 
 
 
         <section id="rulette-search" class="text-color row">
-           
-                <form id="rulette-search-form">
-                    <div class="col">
-                        <h6>Going to lunch with friends, play food roulette</h6>
-                        <h6>Choose your cuisine :</h6>
-                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1" />
-                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search2" />
-                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search3" />
-                        <input type="text" class="rest-search" placeholder="Your Choice" id="random-search4" />
-                        <button type="submit" class="search-button" id="submit-random-search">Result</button>
 
-                </form>
-                
+            <form id="rulette-search-form">
+                <div class="col">
+                    <h6>Going to lunch with friends, play food roulette</h6>
+                    <h6>Choose your cuisine :</h6>
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1" />
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search2" />
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search3" />
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search4" />
+                    <button type="submit" class="search-button" id="submit-random-search">Result</button>
+
+            </form>
+
             </div>
         </section>
 
@@ -99,12 +99,12 @@
         </section>
 
     </main>
-    <script src="keys.js"></script>
-    <script src="client.js"></script>
-    <script src="model.js"></script>
-    <script src="view.js"></script>
-    <script src="controller.js"></script>
-    <script src="index.js"></script>
+    <script src="src/keys.js"></script>
+    <script src="src/client.js"></script>
+    <script src="src/model.js"></script>
+    <script src="src/view.js"></script>
+    <script src="src/controller.js"></script>
+    <script src="src/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"

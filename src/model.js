@@ -36,6 +36,7 @@ const searchOpt = {
   4: "roulette"
 };
 
+
 // Update and store search criteria STATE (model)
 function updateSearchCreteria(searchCriteria) {
   if (searchCriteria == "byname") {

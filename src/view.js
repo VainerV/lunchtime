@@ -2,10 +2,11 @@
 function render() {
     showHideRandomSearchForm();
     outPutDATAtoHTML();
-  
     zipCodeDisplay();
     mainSearchDisplay();
     showCity();
+    noResultFound();
+    //clearOutPutDataToHTML();
   }
 
 function hideSearchResult() {
@@ -50,12 +51,12 @@ function hideSearchResult() {
   }
 
   function showCity() {
-    console.log(STATE.location);
+    
   
     if (STATE.showCity) {
       let city = ` <div class="col text-color"> City: ${
         STATE.location.places[0]["place name"]
-      }</div>`;
+      } <a href src="index.html">Change the City</a></div>`;
       $("#city-display").html(city);
     }
   }
@@ -78,6 +79,23 @@ function outPutDATAtoHTML() {
       <hr>
   </div>`;
     });
+    
     $("#show-search-result").html(displayResult);
   }
   
+  
+function  clearTextFields(){
+  $("#single-search").val("");
+  $("#random-search1").val("");
+  $("#random-search2").val("");
+  $("#random-search3").val("");
+  $("#random-search4").val("");
+}
+
+function noResultFound(){
+  if(STATE.searchResult.length == 0){
+    let = warrningMessage = `<div>No reslts are found, please enter a different cuisine!</div>`
+    clearOutPutDataToHTML();
+    $("#show-search-result").html(warrningMessage);
+  }
+ }
