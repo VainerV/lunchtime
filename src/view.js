@@ -5,8 +5,7 @@ function render() {
     zipCodeDisplay();
     mainSearchDisplay();
     showCity();
-    noResultFound();
-    //clearOutPutDataToHTML();
+   // noResultFound();
   }
 
 function hideSearchResult() {
@@ -52,7 +51,6 @@ function hideSearchResult() {
 
   function showCity() {
     
-  
     if (STATE.showCity) {
       let city = ` <div class="col text-color"> City: ${
         STATE.location.places[0]["place name"]
@@ -65,7 +63,6 @@ function hideSearchResult() {
 function outPutDATAtoHTML() {
     let displayResult = STATE.searchResult.map(singleRest => {
       return `<div class="col-12">
-    
       <div class="col text-color">
        <p>Name: ${singleRest.name} </p>
        <p>Address: ${singleRest.address}</p>

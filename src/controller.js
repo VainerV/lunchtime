@@ -10,7 +10,6 @@ function submitZipCode() {
   // enable restarant field and submit zipcode
   $("#submit-location-search").on("click", event => {
     event.preventDefault();
-
     updateZipCodeValue($("#zipcode-search").val());
     getDataAPIformZIPCODE();
     STATE.mainSearch = true;
@@ -65,7 +64,6 @@ function storeRestName() {
 }
 
 // Update STATE rest Value controller
-
 function updateRestourantValue(restaurantValue) {
   STATE.restaurantName = restaurantValue;
   render();
