@@ -19,17 +19,19 @@
 
 <body>
     <main role="main" aria-live="assertive" class="main-container container">
-        <header role="bunner" class="row" id="bunner-search">
+        <header class="row" id="bunner-search">
 
-            <div class="col" id="logo">
+            <div class="col">
                 <h1 id="logo">LunchTime</h1>
             </div>
 
             <div class="col" id="location">
                 <form class="location-search">
-                    <h6 id="small-logo" class="text-color">Zip Code</h6>
-                    <input type="text" id="zipcode-search" placeholder="Location" />
-                    <button type="submit" class="btn btn-primary" id="submit-location-search">Search</button>
+                    <h6 id="small-logo" class="text-color"  >Zip Code</h6>
+                    <label title="Enter the zipcode"> 
+                    <input type="text" id="zipcode-search" placeholder="Location" role="textbox">
+                   </label>
+                    <button type="submit" class="btn btn-light" id="submit-location-search">Search</button>
                 </form>
             </div>
 
@@ -40,28 +42,30 @@
 
         </header>
 
-        <section id="main-search" class="row text-color">
-            <form id="restaurnt-search">
+        <section id="main-search" class="row text-color" role="region">
+            <form id="restaurnt-search" aria-live="assertive">
 
 
                 <div class="col">
-                    <h6 id="small-logo">Find Reastaurnt By:</h6>
-                    <div id="search-creteria">
+                    <h6 class="text-color">Find Reastaurnt By:</h6>
+                    <div id="search-creteria" role="radio" >
+                            <label for="byname" title="Choose a single cuisine">Choose Cuisine
                         <input type="radio" id="by-name" name="searchcriteria" value="byname">
-                        <label for="byname">Choose Cuisine</label>
+                        </label>
 
-
+                        <label for="roulette" title="Choose lunch roulette">Lunch Roulette
                         <input type="radio" id="roulette" name="searchcriteria" value="roulette">
-                        <label for="roulette">Lunch Roulette</label>
+                       </label>
                     </div>
                 </div>
 
                 <div id="single-restaurant-search">
                     <div class="col">
-                        <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" />
+                        <lable title="Enter cuisine">
+                        <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" role="input"/>
+                       </lable>
 
-
-                        <button type="submit" class="search-button" id="submit-rest-search">Search</button>
+                        <button type="submit" class="btn btn-light" id="submit-rest-search" role="button">Search</button>
                     </div>
 
 
@@ -74,9 +78,9 @@
 
 
 
-        <section id="rulette-search" class="text-color row">
+        <section id="rulette-search" class="text-color row" role="region">
 
-            <form id="rulette-search-form">
+            <form id="rulette-search-form" role="form">
                 <div class="col">
                     <h6>Going to lunch with friends, play food roulette</h6>
                     <h6>Choose your cuisine :</h6>
@@ -92,7 +96,7 @@
         </section>
 
         <h6 class="text-color">Search Result:</h6>
-        <section id="show-search-result" class="row border-outline">
+        <section id="show-search-result" class="row border-outline" aria-live="assertive">
 
 
 

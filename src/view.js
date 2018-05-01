@@ -5,7 +5,7 @@ function render() {
     zipCodeDisplay();
     mainSearchDisplay();
     showCity();
-   // noResultFound();
+   //noResultFound();
   }
 
 function hideSearchResult() {
@@ -89,10 +89,10 @@ function  clearTextFields(){
   $("#random-search4").val("");
 }
 
-function noResultFound(){
+/*function noResultFound(){
   if(STATE.searchResult.length == 0){
     let = warrningMessage = `<div>No reslts are found, please enter a different cuisine!</div>`
-    clearOutPutDataToHTML();
+    //clearOutPutDataToHTML();
     $("#show-search-result").html(warrningMessage);
   }
- }
+ }*/
