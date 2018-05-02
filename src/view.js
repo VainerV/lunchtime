@@ -91,7 +91,7 @@ function  clearTextFields(){
 
 function noResultFound(){
   if(STATE.searchResult.length == 0){
-    let = warrningMessage = `<div id="error-message">No results are found, please enter a different cuisine!</div>`
+    let = warrningMessage = `<div id="error-message">No results are found, please enter desired or different cuisine!</div>`
     //clearOutPutDataToHTML();
     $("#show-search-result").html(warrningMessage);
   }
