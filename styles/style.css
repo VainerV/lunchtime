@@ -93,3 +93,16 @@ color: white;
   font-style: italic;
 }
 
+
+.ui-autocomplete{
+  background-color: white;
+}
+
+.ui-helper-hidden-accessible { display:none; }
+
+#change_link{
+  color: white;
+}
+#error-message{
+  color: white;
+}

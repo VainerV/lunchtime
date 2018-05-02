@@ -134,3 +134,24 @@ function clearOutPutDataToHTML() {
   STATE.searchResult = [];
   render();
 }
+
+// Cusine list autocomlete
+function showCuisineAutocomlete() {
+  $("#single-search").autocomplete({
+    source: STATE.searchCuisine,
+    messages: {
+      noResults: '',
+      results: function() {}
+  }
+  });
+  $(".rest-search").autocomplete({
+    source: STATE.searchCuisine,
+    messages: {
+      noResults: '',
+      results: function() {}
+  }
+  });
+}
+
+
+

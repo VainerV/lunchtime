@@ -26,7 +26,12 @@ const STATE = {
     lat: "",
     lon: ""
   },
-  searchOption: 1
+  searchOption: 1,
+  searchCuisine: [
+    {
+      
+    }
+  ]
 };
 
 const searchOpt = {
@@ -54,3 +59,15 @@ function updateSearchCreteria(searchCriteria) {
 function convertSearchToString() {
   return searchOpt[STATE.searchOption];
 }
+
+
+// convert State cuisine list to string
+function  cuisinListToString(){
+
+  STATE.searchCuisine = STATE.searchCuisine.cuisines.map((current_cuisine) => {
+     
+    return current_cuisine.cuisine.cuisine_name;
+  })
+}
+
+

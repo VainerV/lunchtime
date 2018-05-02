@@ -5,7 +5,7 @@ function render() {
     zipCodeDisplay();
     mainSearchDisplay();
     showCity();
-   //noResultFound();
+   noResultFound();
   }
 
 function hideSearchResult() {
@@ -54,7 +54,7 @@ function hideSearchResult() {
     if (STATE.showCity) {
       let city = ` <div class="col text-color"> City: ${
         STATE.location.places[0]["place name"]
-      } <a href src="index.html">Change the City</a></div>`;
+      } <a href src="index.html" id="change_link">Change the City</a></div>`;
       $("#city-display").html(city);
     }
   }
@@ -89,10 +89,10 @@ function  clearTextFields(){
   $("#random-search4").val("");
 }
 
-/*function noResultFound(){
+function noResultFound(){
   if(STATE.searchResult.length == 0){
-    let = warrningMessage = `<div>No reslts are found, please enter a different cuisine!</div>`
+    let = warrningMessage = `<div id="error-message">No results are found, please enter a different cuisine!</div>`
     //clearOutPutDataToHTML();
     $("#show-search-result").html(warrningMessage);
   }
- }*/
+ }

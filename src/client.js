@@ -28,6 +28,34 @@ function getDataAPI(search) {
   });
 }
 
+
+// retreave cuisine API
+function cuisineAutoComlete(){
+  $.ajax({
+    type: "GET",
+    url: "https://developers.zomato.com/api/v2.1/cuisines",
+    headers: {
+      "user-key": API_KEY
+    },
+    data: {
+      lat: parseFloat(STATE.location.places[0].latitude),
+      lon: parseFloat(STATE.location.places[0].longitude),
+      
+    },
+    
+    success: function(search_data) {
+      //console.log(search_data);
+      STATE.searchCuisine = search_data;
+      cuisinListToString();
+      showCuisineAutocomlete();
+    },
+    error: function(error) {
+      console.log("some error");
+    }
+  });
+
+}
+
 // retrave zipcode API 
 
 function getDataAPIformZIPCODE() {
@@ -39,6 +67,8 @@ function getDataAPIformZIPCODE() {
       STATE.location = search_data;
       //console.log(STATE.location);
       STATE.showCity = true;
+      cuisineAutoComlete();
+
       render();
     },
     error: function(error) {

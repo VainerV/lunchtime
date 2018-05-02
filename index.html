@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    
+
 </head>
 
 
@@ -27,10 +27,10 @@
 
             <div class="col" id="location">
                 <form class="location-search">
-                    <h6 id="small-logo" class="text-color"  >Zip Code</h6>
-                    <label title="Enter the zipcode"> 
-                    <input type="text" id="zipcode-search" placeholder="Location" role="textbox">
-                   </label>
+                    <h6 id="small-logo" class="text-color">Zip Code</h6>
+                    <label title="Enter the zipcode">
+                        <input type="text" id="zipcode-search" placeholder="Location" role="textbox">
+                    </label>
                     <button type="submit" class="btn btn-light" id="submit-location-search">Search</button>
                 </form>
             </div>
@@ -47,23 +47,24 @@
 
 
                 <div class="col">
-                    <h6 class="text-color">Find Reastaurnt By:</h6>
-                    <div id="search-creteria" role="radio" >
-                            <label for="byname" title="Choose a single cuisine">Choose Cuisine
-                        <input type="radio" id="by-name" name="searchcriteria" value="byname">
+                    
+                    <fieldset id="search-creteria" role="radio">
+                        <legend>Search options</legend>
+                        <label for="byname" title="Choose a single cuisine">Choose Cuisine
+                            <input type="radio" id="by-name" name="searchcriteria" value="byname">
                         </label>
 
                         <label for="roulette" title="Choose lunch roulette">Lunch Roulette
-                        <input type="radio" id="roulette" name="searchcriteria" value="roulette">
-                       </label>
-                    </div>
+                            <input type="radio" id="roulette" name="searchcriteria" value="roulette">
+                        </label>
+                    </fieldset>
                 </div>
 
                 <div id="single-restaurant-search">
                     <div class="col">
-                        <lable title="Enter cuisine">
-                        <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" role="input"/>
-                       </lable>
+                        <label title="Enter cuisine">
+                            <input type="text" id="single-search" class="rest-search" placeholder="Restarant Name" role="textbox" />
+                        </label>
 
                         <button type="submit" class="btn btn-light" id="submit-rest-search" role="button">Search</button>
                     </div>
@@ -82,12 +83,12 @@
 
             <form id="rulette-search-form" role="form">
                 <div class="col">
-                    <h6>Going to lunch with friends, play food roulette</h6>
-                    <h6>Choose your cuisine :</h6>
-                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1" />
-                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search2" />
-                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search3" />
-                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search4" />
+                    <div>Going to lunch with friends, play food roulette</div>
+                    <div>Choose your cuisine :</div>
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search1"  aria-label="roulette_search"/>
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search2" aria-label="roulette_search"/>
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search3" aria-label="roulette_search"/>
+                    <input type="text" class="rest-search" placeholder="Your Choice" id="random-search4" aria-label="roulette_search"/>
                     <button type="submit" class="search-button" id="submit-random-search">Result</button>
 
             </form>
@@ -95,7 +96,7 @@
             </div>
         </section>
 
-        <h6 class="text-color">Search Result:</h6>
+        <div id="serach-result-text" class="text-color">Search Result:</div>
         <section id="show-search-result" class="row border-outline" aria-live="assertive">
 
 
@@ -112,6 +113,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
 </body>
 
